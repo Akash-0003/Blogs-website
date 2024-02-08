@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+<body>
+    {%include "myblogs/navbar.html"%}
+    
+        
+      <!-- carousel section begins here-->
+    <div id="carouselExampleCaptions" class="carousel slide" >
+        
+      <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+          <div class="carousel-item active">
+              <img src="https://cdn.pixabay.com/photo/2022/05/24/04/38/study-7217599_1280.jpg" class="d-block w-100" alt="..." >
+              <div class="carousel-caption  d-md-block">
+                  <h3>Blogging Brilliance: Crafting Words that Matter</h3>
+                  <!-- <p></p> -->
+              </div>
+          </div>
+          <div class="carousel-item">
+              <img src="https://cdn.pixabay.com/photo/2015/07/31/11/45/library-869061_1280.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption  d-md-block">
+                  <h3>Discover Hidden Gems: Exploring the Unexplored</h3>
+                  <!-- <p></p> -->
+              </div>
+          </div>
+           <div class="carousel-item">
+              <img src="https://cdn.pixabay.com/photo/2015/07/27/20/16/book-863418_1280.jpg" class="d-block w-100" alt="..." >
+              <div class="carousel-caption  d-md-block">
+                  <h3>Adventures Await: Thrilling Experiences That Define a Lifetime</h3>
+                   <p></p> 
+              </div>
+          </div> 
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+  
+  
+  
+  <!-- carousel section ends here -->
+
+    <div class="container text-center mb-4">
+      <h3 class="display-4 text-info">Blog Categories</h3>
+      {% if category %}
+      <div class="d-flex flex-wrap justify-content-evenly">
+          {% for y in category  %}
+          <div class="card mb-2" style="width: 20rem">
+              <img src="{{y.blogcat_img.url}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{ y.blog_cat }}</h5>
+                <p class="card-text">{{ y.blogcat_description }}</p>
+                <a href="{% url 'blog' %}?category={{ y.blog_cat }}" class="btn btn-primary" style="background-color: #0066cc; border: none;">Click to view more</a> 
+
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+      {% endif %}
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/65b0b2e68d261e1b5f572fb4/1hkt3llb1';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+</body>
+</html>
